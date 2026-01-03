@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:image" content="img/pi.JPG">
+  <meta property="og:image:width" content="1200"> <!-- 推奨サイズ -->
+  <meta property="og:imageheight" content="630"> <!-- 推奨サイズ -->
+  <link rel="icon" href="img/favicon.ico">
+
+
+  <title>ぴらふのおむに</title>
+  <style>
+
+
+  body {
+    background-color: black;
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    line-height: 0;
+    padding: 0;
+    max-width: 900px;
+    margin: 0;
+  }
+  .title {
+    text-align: left;
+    background-color:#FFFF99;
+    font-size: 20px;
+    border: solid 2px black;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    color: black;
+    margin: 0;
+  }
+  h2 {
+    color: #FFFF77;
+    border-left: 6px solid #888;
+    padding-left: 10px;
+    margin-top: 40px;
+  }
+  h3 {
+    color: #FFFF99;
+    border-left: 4px solid #aaa;
+    padding-left: 8px;
+    margin-top: 30px;
+  }
+  table {
+    margin: 12px 0;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table th, table td {
+    border: 1px solid #666;
+    padding: 8px;
+    text-align: center;
+  }
+  table caption {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: white;
+  }
+  img {
+    max-width: 55%;
+    height: auto;
+    margin: 15px 0;
+    display: block;
+  }
+  ul, ol {
+    margin-left: 12px;
+  }
+
+
+  #left {
+    position:absolute;
+    top:0;
+    left:0px;
+    width:220px;
+    height:100%;
+    text-align:center;
+  }
+  #right{
+    position:absolute;
+    top:0;
+    right:0;
+    left:220px;
+    height:100%;
+  }
+  iframe {
+    border:none;
+    height:100%;
+    width:100%;
+  }
+</style>
+</head>
+<body>
+  <div id="left">
+    <iframe src="menu.html"name="left"></iframe>
+  </div>
+  <div id="right">
+    <iframe src="main.html" name="right"></iframe>
+  </div>
+</body>
+</html>

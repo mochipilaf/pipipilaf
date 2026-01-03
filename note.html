@@ -1,474 +1,487 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ぴらふのおむに</title>
-    <style>
-        
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="img/favicon.ico">
 
-        body {
-            background-color: black;
-            color: white;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 90%;
-            line-height: 1.4;
-            padding: 20px;
-            max-width: 900px;
-            margin: auto;
-        }
-        .title {
-            text-align: left;
-            background-color:#FFFF99;
-            font-size: 20px;
-            border: solid 2px black;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            color: black;
-            margin: 0;
-        }
-        h2 {
-            color: #FFFF77;
-            border-left: 6px solid #888;
-            padding-left: 10px;
-            margin-top: 40px;
-        }
-        h3 {
-            color: #FFFF99;
-            border-left: 4px solid #aaa;
-            padding-left: 8px;
-            margin-top: 30px;
-        }
-        table {
-            margin: 12px 0;
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table th, table td {
-            border: 1px solid #666;
-            padding: 8px;
-            text-align: center;
-        }
-        table caption {
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: white;
-        }
-        img {
-            max-width: 55%;
-            height: auto;
-            margin: 15px 0;
-            display: block;
-        }
-        ul, ol {
-            margin-left: 12px;
-        }
-    </style>
+  <title>ぴらふのおむに</title>
+  <style>
+
+  body {
+    background-color:BLACK;
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 110%;
+    line-height: 1.8;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+  .title {
+    text-align: left;
+    background-color:#FFFF99;
+    font-size: 20px;
+    border: solid 2px black;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    color: black;
+    margin: 0;
+  }
+  h2 {
+    color: #FFFF77;
+    border-left: 6px solid #888;
+    padding-left: 10px;
+    margin-top: 40px;
+  }
+  h3 {
+    color: #FFFF99;
+    border-left: 4px solid #aaa;
+    padding-left: 8px;
+    margin-top: 30px;
+  }
+  table {
+    margin: 12px 0;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table th, table td {
+    border: 1px solid #666;
+    padding: 8px;
+    text-align: center;
+  }
+  table caption {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: white;
+  }
+  img {
+    max-width: 55%;
+    height: auto;
+    margin: 15px 0;
+    display: block;
+  }
+  ul, ol {
+    margin-left: 12px;
+  }
+  </style>
 </head>
 <body>
-    <div class="title">
-        <h1>ぴらふのおむに</h1>
+  <div class="title">
+    <h1 id="pagetop">ぴらふのおむに</h1>
+  </div>
+
+  <section>
+
+    <a href="main.html" target="right">←topに戻る</a><br>
+
+    <br>
+
+    2025年記事一覧<br>
+    <div style="background-color:#FFFFFF;">
+
+      <a href="#goiru">  揺動させたゴイル脚について</a><br>
+      <a href="#sasu" >遊星歯車の計算方法から考える、最適なサスペンション設計</a>
     </div>
 
-<section>
-      <h2>2025/12/24 揺動させたゴイル脚について</h2>
-<br>
-<p>立命杯に向けてゴイル脚を試作、実践投入した。その結果と設計についてつらつら書いていく<br>
+    <h2 id="goiru">2025/12/24 揺動させたゴイル脚について</h2>
+    ※2025年度かわロボアドベントカレンダーに投稿させていただいた記事になります。<br>
 
-<br>
-<br>
-アームは既存の回転シールド、脚ユニットが今回試作したゴイル脚。
-さっさと形にして試運転したかったため、3DPで試作。<br>
-    <img src="1.JPG?raw=true" alt="ゴイル脚搭載機">
-    これが令和最新版ゴイル機体<br>
-<a href="https://x.com/mochi_pilaf/status/1997967869624324306"> 試運転動画~ツイッタより</a>
-<h3>1.概要</h3>
+    <p>立命杯に向けてゴイル脚を試作、実践投入した。その結果と設計について書いていく<br>
 
-<p>今回は以下コンセプトを満たせるような設計を目指した<br>
-    <br>
-    ・なるべく薄く作る　  →減速ギアを原動節にして最小構成<br>
-    ・走破性を上げる工夫　→脚先をスライダリンクにして「なるべく」揺動させる。<br>
-    <br>
+      <br>
 
-　　常に地面に対して平行な位置になっているより、角度をつけたほうがタイヤに近づくから特に段差とかには有利なんでないかと思ったのがきっかけ。<br>
-    
-         <img src="2.JPG?raw=true" alt="ゴイル脚">
-<p>薄さに関しては脚ユニットの幅（側板の外側同士）<strong>33mm</strong>。<br>
-ヘッケン脚ユニットの幅は57mmなので、当社比ではかなり薄くできていると思う。
+      アームは既存の回転シールド、脚ユニットが今回試作したゴイル脚。
+      さっさと形にして試運転したかったため、3DPで試作。<br>
+      <img src="img/1.JPG?raw=true" alt="ゴイル脚搭載機">
+      これが令和最新版ゴイル機体<br>
+      <a href="https://x.com/mochi_pilaf/status/1997967869624324306"> 試運転動画~ツイッタより</a>
+      <h3>1.概要</h3>
 
-      <img src="haba.JPG?raw=true" alt="haba">
-   <p> 回転シールドに乗せたところ、機体幅270mmになりシールドの幅に余地ができすぎた。<br>
-    横幅300mmの回転シールドも夢じゃない。小型機を丸呑みできるぞ！！
-        
+      <p>今回は以下コンセプトを満たせるような設計を目指した<br>
+        <br>
+        ・薄く作る　  →減速ギアを原動節にして最小構成<br>
+        ・走破性を上げる工夫　→脚先をスライダリンクにして「なるべく」揺動させる。<br>
+        <br>
 
-    <br>
-<br>
-<h3>2.実戦投入してみて</h3>
-   
-<p>と、いうのも1戦(ほぼ2分の激戦)で動作不能になり、その後フィールドを走ることはなかった。<br>
-   試合中の動作感としては <strong>　震える！鳴る！滑る！　</strong>で
-揺動させるとかそういうレベルの話ではなく、 <strong>「超振動」</strong>をどうにか対策しないといけない。<br>
-    平地で試運転させた時はそこまでスリップ感はなかったが、実際のフィールドだと段差で滑りまくっていた。<br>
-    サスペンション機構は伝達ギアの軸から回転させて、緩い輪ゴムで引っ張っていただけなので、逆に推力が逃げてしまっていたみたい。<br>
-    
-<br>
-    破壊箇所は以下
-    <br>
-     <img src="1-1.JPG?raw=true" alt="hakai1">
-脚ユニットが押されて歪んだ拍子に自分の回転シールドで殴って割れたとされる。破片をまき散らしてもうた<br>
-    
-    <img src="1-2.JPG?raw=true" alt="hakai2">
-    
-   ギア欠け。これは単に組付けが悪く、嚙み合わせる位置が歯幅の端っこすぎた。<br>
-    あとは脚のリンクが反転したりして、ロックした状態で無理やり動かそうとしたのもよくなかった。<br>
-    <br>
-<br>
-<br>
+        常に地面に対して平行な位置になっているより、角度をつけたほうがタイヤに近づくから特に段差とかには有利なんでないかと思ったのがきっかけ。<br>
 
- <h3>3.設計、内部構造</h3>
-<p>設計10月　印刷、組み立て11月〜立命館前日<br>
-切削だったら組み立てまで間に合って無かったと思う。作り直しを何回もしている時は3DPの恩恵を一番感じた。プリンタはbambu A1<br>
-先端が地面をほぼ平行を向く系のブレードとリンクは同じで、原動節と長さの違う従動節を回転中心をずらして配置して、スライダ脚でつなぐ。<br>
+        <img src="img/2.JPG?raw=true" alt="ゴイル脚">
+        <p>薄さに関しては脚ユニットの幅（側板の外側同士）<strong>33mm</strong>。<br>
+          ヘッケン脚ユニットの幅は57mmなので、当社比ではかなり薄くできていると思う。
 
-<br>
+          <img src="img/haba.JPG?raw=true" alt="haba">
+          <p> 回転シールドに乗せたところ、機体幅270mmになりシールドの幅に余地ができすぎた。<br>
+            横幅300mmの回転シールドも夢じゃない。小型機を丸呑みできるぞ！！
 
-     <img src="3.JPG?raw=true" alt="ゴイル脚搭載機">
-      <img src="4.JPG?raw=true" alt="ゴイル脚搭載機">
- 
-<p>原動節、従動節、揺動節、固定節からなる。揺動節は各ユニット10個。1相。
-    <br>素材はamazonのPETG脚先はシリコンシートを細かく切って貼っている。
-    <br>
-    <br>プリントした脚に付きにくいのと設置面積も小さいからめっちゃ剥がれる。<br>
-<br>
-<p>従動節を外すとこのような内部構造になる外側が揺動する脚先で、内側は平行リンクになっており、原動節から揺動節へ回転を伝達している。<br>
-摺動部分は全てベアリング！！<br>
-    アリエクで計5000円くらい。はずれなしだった (6803ZZ x10pcs,MR95ZZ x60pcs,MR85zz x60pcs)<br>
-    
-<p>原動節にはφ5のアルミ軸に内径5外径8のベアリングを入れ、M3皿ネジ(頭φ6)で上からしめて抜け止めにしている。PETGに直接ネジを切っている。<br>
 
-        <img src="8.JPG?raw=true" alt="ゴイル脚搭載機">
-これは完全自己流だが、PETGはφ2.7くらいの穴にネジを押し付けて無理やり締めることで緩みにくいタップが切れる。粘っこさのせいでネジが食いついて全然弛まない。<br>
-    このパイン飴みたいなのが5年ものの自作セットカラーで繰り返し開け閉めしても耐えている。<br>
+            <br>
+            <br>
+            <h3>2.実戦投入してみて</h3>
 
- 
-    
-<br>
-     <img src="10.JPG?raw=true" alt="ゴイル脚搭載機">
-<p>スライダ脚は原動節のベアリングが通る穴はφ8 スライダのベアリングはφ9にすることで反転防止のストッパを設けた。<br>
-    片面から切削でつくれるようになっている。
-    
-    <p>従動節は3dプリンタで軸まで生やし、ベアリング入れてから先端をかしめて抜けないようにしている。<br>
+            <p>と、いうのも1戦(ほぼ2分の激戦)で動作不能になり、その後フィールドを走ることはなかった。<br>
+              試合中の動作感としては <strong>　震える！鳴る！滑る！　</strong>で
+              揺動させるとかそういうレベルの話ではなく、 <strong>「超振動」</strong>をどうにか対策しないといけない。<br>
+              平地で試運転させた時はそこまでスリップ感はなかったが、実際のフィールドだと段差で滑りまくっていた。<br>
+              サスペンション機構は伝達ギアの軸から回転させて、緩い輪ゴムで引っ張っていただけなので、逆に推力が逃げてしまっていたみたい。<br>
 
-      
-<br>
-<p>このパラメータは切り替えしをギリギリまで攻めている。原動節と揺動節が一番近い時で2.4mm これを2.0mmで作った時はリンクがすぐ反転して脚先が1回転してしまった。<br>
-修正後でも動かしている間に反転することがたまにあったので、攻めすぎは禁物。各パーツの剛性も重要になってくる。
+              <br>
+              破壊箇所は以下
+              <br>
+              <img src="img/1-1.JPG?raw=true" alt="hakai1">
+              脚ユニットが押されて歪んだ拍子に自分の回転シールドで殴って割れたとされる。破片をまき散らしてもうた<br>
 
- <h3>4.まとめ</h3>
-  <p>  脚幅が薄くできるというのはメリットだが、現代のバトルスピードについていくにはまだまだ改良が必要。<br>
-    リンク構造、サスペンション、足裏等々<br>
-    4脚ともゴイルにせずとも後脚はヘッケンでもいいのでまたリベンジしたい<br>
+              <img src="img/1-2.JPG?raw=true" alt="hakai2">
 
-</section>
+              ギア欠け。これは単に組付けが悪く、嚙み合わせる位置が歯幅の端っこすぎた。<br>
+              あとは脚のリンクが反転したりして、ロックした状態で無理やり動かそうとしたのもよくなかった。<br>
+              <br>
+              <br>
+              <br>
+
+              <h3>3.設計、内部構造</h3>
+              <p>設計10月　印刷、組み立て11月〜立命館前日<br>
+                切削だったら組み立てまで間に合って無かったと思う。作り直しを何回もしている時は3DPの恩恵を一番感じた。プリンタはbambu A1<br>
+                先端が地面をほぼ平行を向く系のブレードとリンクは同じで、原動節と長さの違う従動節を回転中心をずらして配置して、スライダ脚でつなぐ。<br>
+
+                <br>
+
+                <img src="img/3.JPG?raw=true" alt="ゴイル脚搭載機">
+                <img src="img/4.JPG?raw=true" alt="ゴイル脚搭載機">
+
+                <p>原動節、従動節、揺動節、固定節からなる。揺動節は各ユニット10個。1相。
+                  <br>素材はamazonのPETG脚先はシリコンシートを細かく切って貼っている。
+                  <br>
+                  <br>プリントした脚に付きにくいのと設置面積も小さいからめっちゃ剥がれる。<br>
+                  <br>
+                  <p>従動節を外すとこのような内部構造になる外側が揺動する脚先で、内側は平行リンクになっており、原動節から揺動節へ回転を伝達している。<br>
+                    摺動部分は全てベアリング！！<br>
+                    アリエクで計5000円くらい。はずれなしだった (6803ZZ x10pcs,MR95ZZ x60pcs,MR85zz x60pcs)<br>
+
+                    <p>原動節にはφ5のアルミ軸に内径5外径8のベアリングを入れ、M3皿ネジ(頭φ6)で上からしめて抜け止めにしている。PETGに直接ネジを切っている。<br>
+
+                      <img src="img/8.JPG?raw=true" alt="ゴイル脚搭載機">
+                      これは完全自己流だが、PETGはφ2.7くらいの穴にネジを押し付けて無理やり締めることで緩みにくいタップが切れる。粘っこさのせいでネジが食いついて全然弛まない。<br>
+                      このパイン飴みたいなのが5年ものの自作セットカラーで繰り返し開け閉めしても耐えている。<br>
 
 
 
+                      <br>
+                      <img src="img/10.JPG?raw=true" alt="ゴイル脚搭載機">
+                      <p>スライダ脚は原動節のベアリングが通る穴はφ8 スライダのベアリングはφ9にすることで反転防止のストッパを設けた。<br>
+                        片面から切削でつくれるようになっている。
+
+                        <p>従動節は3dプリンタで軸まで生やし、ベアリング入れてから先端をかしめて抜けないようにしている。<br>
+
+
+                          <br>
+                          <p>このパラメータは切り替えしをギリギリまで攻めている。原動節と揺動節が一番近い時で2.4mm これを2.0mmで作った時はリンクがすぐ反転して脚先が1回転してしまった。<br>
+                            修正後でも動かしている間に反転することがたまにあったので、攻めすぎは禁物。各パーツの剛性も重要になってくる。
+
+                            <h3>4.まとめ</h3>
+                            <p>  脚幅が薄くできるというのはメリットだが、現代のバトルスピードについていくにはまだまだ改良が必要。<br>
+                              リンク構造、サスペンション、足裏等々<br>
+                              4脚ともゴイルにせずとも後脚はヘッケンでもいいのでまたリベンジしたい<br>
+
+                            </section>
+                            <a href="#pagetop" >ページ上部に戻る</a><br>
 
 
 
-    
-    <section>
-        <h2>2025/9/17 遊星歯車の計算方法から考える、最適なサスペンション設計</h2>
-        <p>
-        昨今のかわロボでは標準搭載となったサスペンション。そのほとんどがギアトレインがサスペンションのリンクの一部になっており、満足いく性能にするにはは試行錯誤が必要になるだろう。
-        </p>
-        <p>今回は、サスペンションのギアトレイン歯数や枚数（奇数or偶数）に着目し、動作の違いを紹介する。</p>
-            
-        <h3>1. 概要</h3>
-        <p>かわろぼに用いられる脚のサスペンションのギア構造は遊星歯車の遊星歯車とキャリアの関係に置き換えることができ、後述の遊星歯車の速度比の計算式を流用して計算できる。</p>
-
-        <p>まず、理想のサスペンションの性能は以下のように定義する
-        </p>
-        <p><strong><font color=#FFFF99>「サスが稼働したときに脚機構が回転しないこと」</font></strong></p>
-            障害物に追従させるためのものなので、脚の回転と連動してしまうと効きにくくなってしまう。<br>
-    
-        遊星歯車で言うと、キャリアが動いても遊星歯車が回らないこと。
-
-        <p>これを満たすギア設計は以下のようになる</p>
-
-     <table>
-         <table style="font-size:90%;">
-            <thead>
-                <tr>
-                  <th style="background-color:darkslategray">サスペンション方式</th>
-                 <th style="background-color:darkslategray">奇数枚 or 偶数枚</th>
-                  <th style="background-color:darkslategray">歯数の関係</th>
- 
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>平行リンク</th>
-                      <td>奇数枚</td>
-                    <td>回転中心歯車の歯数 = 出力歯車の歯数</td>
-                  
-                </tr>
-                <tr>
-                    <th>回転サス </th>
-                      <td>奇数枚</td>
-                     <td>回転中心歯車の歯数 ＜＜ 出力歯車の歯数</td>
-                </tr>
-
-            </tbody>
-        </table>
-
-      
-        
- <img src="gear.png?raw=true" alt="サスペンションの例">
-        
-        <p>※リンク外のギアは計算結果に影響しない（脚の回転方向には影響する）</p>
-<p>以下より計算例を紹介していく</p>
-        <h3>2. 遊星歯車機構について</h3>
-        <p>遊星歯車機構は、太陽歯車・遊星歯車・内歯車・キャリアから構成され、固定する歯車により3種類ある</p>
-
-        
-        <ol>
-            <li><strong>プラネタリ型：</strong> 内歯車を固定</li>
-            <li><strong><font color=#FFFF99>ソーラ型：</strong>太陽歯車を固定</font></li>
-            <li><strong>スター型：</strong> 遊星キャリアを固定</li>
-        </ol>
 
 
-        <p>今回の計算では太陽歯車を固定するソーラ型の速度比計算方法を使用する。</p>
 
-        <p>固定：太陽歯車<br>入力：内歯車<br>出力：キャリア</p>
-        <img src="syoki.png?raw=true" alt="太陽歯車一回転">
-        <h3>3. 遊星歯車機構速度比の計算</h3>
-        <p><strong>糊付け法</strong>という手法で計算を行う。</p>
+                            <section>
+                              <h2 id="sasu">2025/9/17 遊星歯車の計算方法から考える、最適なサスペンション設計</h2>
+                              <p>
+                                昨今のかわロボでは標準搭載となったサスペンション。そのほとんどがギアトレインがサスペンションのリンクの一部になっており、満足いく性能にするにはは試行錯誤が必要になるだろう。
+                              </p>
+                              <p>今回は、サスペンションのギアトレイン歯数や枚数（奇数or偶数）に着目し、動作の違いを紹介する。</p>
 
-        <ol>
-            ① キャリアを固定して太陽歯車を1回転させ、その時の他の歯車の回転数を計算する。<br>
-            ② 太陽歯車が回転した分を逆回転させる（歯車全部を糊付けして回転）。<br>
-            ③ ①＋②の値を入力歯車／出力歯車として速度比を求める。<br>
-        </ol>
+                              <h3>1. 概要</h3>
+                              <p>かわろぼに用いられる脚のサスペンションのギア構造は遊星歯車の遊星歯車とキャリアの関係に置き換えることができ、後述の遊星歯車の速度比の計算式を流用して計算できる。</p>
 
- 参考:https://www.khkgears.co.jp/gear_technology/intermediate_guide/KHK388.html
-<p>太陽歯車の歯数＝Za、遊星歯車＝Zb、内歯車＝Zc</p>
-          <table>
-              
-            <caption>ソーラ型の速度比計算</caption>
-                   <table style="font-size: 80%;">
-              <thead>
-                <tr>
-                  <th>回転数</th>
-                  <th style="background-color:green">太陽歯車 Za</th>
-                  <th style="background-color:purple">遊星歯車 Zb</th>
-                  <th style="background-color:dodgerblue">内歯車 Zc</th>
-                  <th style="background-color:darkorange">キャリア</th>
-              </tr>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>①</th>
-                    <td>1</td>
-                    <td>-Za/Zb</td>
-                    <td>-Za/Zc</td>
-                    <td>0 (固定)</td>
-                </tr>
-                <tr>
-                    <th>②</th>
-                    <td>-1</td>
-                    <td>-1</td>
-                    <td>-1</td>
-                    <td>-1</td>
-                </tr>
-                <tr>
-                    <th>①＋②</th>
-                    <td>0 (固定)</td>
-                    <td>-Za/Zb-1</td>
-                    <td>-Za/Zc-1</td>
-                    <td>-1</td>
-                </tr>
-            </tbody>
-        </table>
+                              <p>まず、理想のサスペンションの性能は以下のように定義する
+                              </p>
+                              <p><strong><font color=#FFFF99>「サスが稼働したときに脚機構が回転しないこと」</font></strong></p>
+                              障害物に追従させるためのものなので、脚の回転と連動してしまうと効きにくくなってしまう。<br>
 
-        内歯車Zc/遊星キャリアの速度比は、(-Za/Zc-1)/-1　となる。
+                              遊星歯車で言うと、キャリアが動いても遊星歯車が回らないこと。
 
-  <h3>4. かわロボの脚に置き換えた計算</h3>
-  かわロボの脚の場合は内歯車をヘッケンクランクに固定接続される出力歯車に置き換えて、
-  キャリア/出力歯車を計算する。内歯車→平歯車に置き換わることで、Zcの回転方向は遊星歯車の計算と反対になる。<br>
-  また、実際のギトレインでは回転中心から出力歯車まで複数枚で構成されているが、<br>
-<strong>  遊星歯車の枚数が奇数が偶数で速度比が大きく変わる。</strong><br>
+                              <p>これを満たすギア設計は以下のようになる</p>
 
-計算方法<br>
+                              <table>
+                                <table style="font-size:90%;">
+                                  <thead>
+                                    <tr>
+                                      <th style="background-color:darkslategray">サスペンション方式</th>
+                                      <th style="background-color:darkslategray">奇数枚 or 偶数枚</th>
+                                      <th style="background-color:darkslategray">歯数の関係</th>
 
-  <ol>
-      ① キャリアを固定して太陽歯車を1回転させ、他の歯車の回転数を計算する。<br>
-      ② 太陽歯車が回転した分を逆回転させる（歯車全部を糊付けして回転）。<br>
-      ③ ①＋②の値をキャリア／出力歯車として減速比を求める。<br>
-  </ol>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th>平行リンク</th>
+                                      <td>奇数枚</td>
+                                      <td>回転中心歯車の歯数 = 出力歯車の歯数</td>
 
-        <h4><font color=#FFFF99>・奇数枚の場合 (歯数が太陽歯車 ≒ 出力歯車)</font></h4>
-            <img src="sasukisuu.gif?raw=true" alt="奇数枚ギア構成">
+                                    </tr>
+                                    <tr>
+                                      <th>回転サス </th>
+                                      <td>奇数枚</td>
+                                      <td>回転中心歯車の歯数 ＜＜ 出力歯車の歯数</td>
+                                    </tr>
 
-        <table>
-            <caption></caption>
-                     <table style="font-size: 80%;">
-            <thead>
-                <tr>
-                  <th>回転数</th>
-                  <th style="background-color:#FF66FF">太陽歯車 Za</th>
-                  <th style="background-color:purple">遊星歯車 Zb</th>
-                  <th style="background-color:darkorange">出力歯車 Zc</th>
-                  <th style="background-color:#FF66FF">キャリア</th>
-              </tr>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>①</th>
-                    <td>1</td>
-                    <td>-Za/Zb</td>
-                    <td>Za/Zc</td>
-                    <td>0 (固定)</td>
-                </tr>
-                <tr>
-                    <th>②</th>
-                    <td>-1</td>
-                    <td>-1</td>
-                    <td>-1</td>
-                    <td>-1</td>
-                </tr>
-                <tr>
-                    <th>①＋②</th>
-                    <td>0</td>
-                    <td>-Za/Zb-1</td>
-                    <td>Za/Zc-1</td>
-                    <td>-1</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p>⇒減速比＝出力歯車Zc(①＋②)/キャリア(①＋②)＝<strong><font color=#FFFF99>1-Za/Zc</font></strong></p>
-        Zc＝20、Za＝10 とするとキャリアを1回転させると出力歯車が0.5回転する。<br>
-        歯数が太陽歯車＝出力歯車の場合はZa＝Zcとなり、減速比＝0。キャリアが動いても出力歯車が動かない。<br>
+                                  </tbody>
+                                </table>
 
 
-        <h4><font color=#FFFF99>・偶数枚の場合 (歯数が太陽歯車 ≒ 出力歯車)</font></h4>
-        <img src="sasuguusuu.gif?raw=true" alt="偶数枚ギア構成">
 
-        <table>
-            <caption></caption>
-                     <table style="font-size: 80%;">
-            <thead>
-                <tr>
-                  <th>回転数</th>
-                  <th style="background-color:#FF66FF">太陽歯車 Za</th>
-                  <th style="background-color:purple">遊星歯車 Zb</th>
-                    <th style="background-color:purple">遊星歯車 Zb2</th>
-                  <th style="background-color:darkorange">出力歯車 Zc</th>
-                  <th style="background-color:#FF66FF">キャリア</th>
-              </tr>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>①</th>
-                    <td>1</td>
-                    <td>-Za/Zb1</td>
-                    <td>Za/Zb2</td>
-                    <td>-Za/Zc</td>
-                    <td>0 (固定)</td>
-                </tr>
-                <tr>
-                    <th>②</th>
-                    <td>-1</td>
-                    <td>-1</td>
-                    <td>-1</td>
-                    <td>-1</td>
-                    <td>-1</td>
-                </tr>
-                <tr>
-                    <th>①＋②</th>
-                    <td>0</td>
-                    <td>-Za/Zb1-1</td>
-                    <td>Za/Zb2-1</td>
-                    <td>-Za/Zc-1</td>
-                    <td>-1</td>
-                </tr>
-            </tbody>
-        </table>
+                                <img src="img/gear.png?raw=true" alt="サスペンションの例">
 
-        <p>⇒減速比＝Zc(①＋②)/キャリア(①＋②)＝<strong><font color=#FFFF99>1＋Za/Zc。</font></strong></p>
-        <p>歯数が太陽歯車＝出力歯車の場合はZa＝Zcとなり、減速比2。</font></strong></p>
- 
+                                <p>※リンク外のギアは計算結果に影響しない（脚の回転方向には影響する）</p>
+                                <p>以下より計算例を紹介していく</p>
+                                <h3>2. 遊星歯車機構について</h3>
+                                <p>遊星歯車機構は、太陽歯車・遊星歯車・内歯車・キャリアから構成され、固定する歯車により3種類ある</p>
 
-        <h3>5. 平行リンクの計算</h3>
-        <p>キャリアに対して出力ギアが動くほど脚が回転するため、キャリアと出力歯車の速度比を0にすることが最適である。偶数枚だと必ず1以上の速度比になることから奇数枚にする必要がある。</p>
-        <p> 出力歯車Zc/キャリア =　1-Za/Zc=0　となるようにする。<strong><font color=#FFFF99>　Za=Zcが理想。</font></strong><br>
-          出力歯車の歯数を回転中心の歯車に近づけるほど回転数が小さくなる。</p>
-        <img src="sasu3.gif?raw=true" alt="回転サス 偶数枚1">
-        <img src="sasu4.gif?raw=true" alt="回転サス 偶数枚2">
 
-        <h3>6. 回転サスの計算</h3>
-        <p>平行リンクとの違いは、脚のヘッケン軸がキャリアと接続されているという点である。この場合、脚のリンクがキャリアとともに動く。キャリアと出力歯車の速度比を同じにする（1に近づける）ことでサスが効きやすくなる。</p>
-        <p>出力歯車Zc=1-Za/Zc=1 となるようにする。<strong><font color=#FFFF99>　Za＜Zcとするほど回転数が1に近づく。</font></strong></p>
-        <p>奇数枚、偶数枚では脚の回転方向が反対になる。</p>
+                                <ol>
+                                  <li><strong>プラネタリ型：</strong> 内歯車を固定</li>
+                                  <li><strong><font color=#FFFF99>ソーラ型：</strong>太陽歯車を固定</font></li>
+                                  <li><strong>スター型：</strong> 遊星キャリアを固定</li>
+                                </ol>
 
-        <p><strong>奇数の場合：</strong>
-        1-Za/Zcより必ずキャリアより出力歯車が少なく回る → 脚がキャリアの動きと逆に動く。
-        サスが上に上がる → 脚が前進方向に進む。</p>
-            <img src="sasu1.gif?raw=true" alt="平行リンクの構成">
-        <img src="sasu2.gif?raw=true" alt="回転サス 奇数枚">
 
-        <p><strong>偶数の場合：</strong>
-        1+Za/Zcより必ずキャリアより出力歯車が多く回る → 脚がキャリアの動きと同じ方向に動く。
-        サスが上がる → 脚が後進方向に進む。</p>
-        
-        偶数枚では後進方向に進んでしまうため、奇数枚にする。※これに関しては諸説あるかもしれない<br>
-        
-        以下、サスが稼働したときに脚機構が回転しない条件<br>
+                                <p>今回の計算では太陽歯車を固定するソーラ型の速度比計算方法を使用する。</p>
 
-             <table>
-                          <table style="font-size:80%;">
-            <thead>
-                <tr>
-                  <th style="background-color:darkslategray">サスペンション方式</th>
-                 <th style="background-color:darkslategray">計算式</th>
-                    <th style="background-color:darkslategray">奇数枚の時</th>
-                  <th style="background-color:darkslategray">偶数枚の時</th>
-           
- 
-              </tr>
-            </thead>
-                 
-            <tbody>
-                <tr>
-                    <th>平行リンク</th>
-                      <td>キャリア(①＋②)／出力歯車Zc=0</td>
-                    <td >　1-Za/Zc=0</td>
-                    <td style="background-color:dimgray"> 1＋Za/Zc=0</td>
-                  
-                </tr>
-                <tr>
-                    <th>回転サス </th>
-                      <td>キャリア(①＋②)／出力歯車Zc=1</td>
-                    <td >　1-Za/Zc=1</td>
-                    <td style="background-color:dimgray">1＋Za/Zc=1 </td>
-                </tr>
+                                <p>固定：太陽歯車<br>入力：内歯車<br>出力：キャリア</p>
+                                <img src="img/syoki.png?raw=true" alt="太陽歯車一回転">
+                                <h3>3. 遊星歯車機構速度比の計算</h3>
+                                <p><strong>糊付け法</strong>という手法で計算を行う。</p>
 
-            </tbody>
-        </table>
-            
-            
-            
-    </section>
-</body>
-</html>
+                                <ol>
+                                  ① キャリアを固定して太陽歯車を1回転させ、その時の他の歯車の回転数を計算する。<br>
+                                  ② 太陽歯車が回転した分を逆回転させる（歯車全部を糊付けして回転）。<br>
+                                  ③ ①＋②の値を入力歯車／出力歯車として速度比を求める。<br>
+                                </ol>
 
-    <h4>まとめ</h4>
-  <p>本ページhtmlはほとんどChatGTPに書いてもらいました</p>
+                                参考:https://www.khkgears.co.jp/gear_technology/intermediate_guide/KHK388.html
+                                <p>太陽歯車の歯数＝Za、遊星歯車＝Zb、内歯車＝Zc</p>
+                                <table>
 
+                                  <caption>ソーラ型の速度比計算</caption>
+                                  <table style="font-size: 80%;">
+                                    <thead>
+                                      <tr>
+                                        <th>回転数</th>
+                                        <th style="background-color:green">太陽歯車 Za</th>
+                                        <th style="background-color:purple">遊星歯車 Zb</th>
+                                        <th style="background-color:dodgerblue">内歯車 Zc</th>
+                                        <th style="background-color:darkorange">キャリア</th>
+                                      </tr>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th>①</th>
+                                      <td>1</td>
+                                      <td>-Za/Zb</td>
+                                      <td>-Za/Zc</td>
+                                      <td>0 (固定)</td>
+                                    </tr>
+                                    <tr>
+                                      <th>②</th>
+                                      <td>-1</td>
+                                      <td>-1</td>
+                                      <td>-1</td>
+                                      <td>-1</td>
+                                    </tr>
+                                    <tr>
+                                      <th>①＋②</th>
+                                      <td>0 (固定)</td>
+                                      <td>-Za/Zb-1</td>
+                                      <td>-Za/Zc-1</td>
+                                      <td>-1</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+
+                                内歯車Zc/遊星キャリアの速度比は、(-Za/Zc-1)/-1　となる。
+
+                                <h3>4. かわロボの脚に置き換えた計算</h3>
+                                かわロボの脚の場合は内歯車をヘッケンクランクに固定接続される出力歯車に置き換えて、
+                                キャリア/出力歯車を計算する。内歯車→平歯車に置き換わることで、Zcの回転方向は遊星歯車の計算と反対になる。<br>
+                                また、実際のギトレインでは回転中心から出力歯車まで複数枚で構成されているが、<br>
+                                <strong>  遊星歯車の枚数が奇数が偶数で速度比が大きく変わる。</strong><br>
+
+                                計算方法<br>
+
+                                <ol>
+                                  ① キャリアを固定して太陽歯車を1回転させ、他の歯車の回転数を計算する。<br>
+                                  ② 太陽歯車が回転した分を逆回転させる（歯車全部を糊付けして回転）。<br>
+                                  ③ ①＋②の値をキャリア／出力歯車として減速比を求める。<br>
+                                </ol>
+
+                                <h4><font color=#FFFF99>・奇数枚の場合 (歯数が太陽歯車 ≒ 出力歯車)</font></h4>
+                                <img src="img/sasukisuu.gif?raw=true" alt="奇数枚ギア構成">
+
+                                <table>
+                                  <caption></caption>
+                                  <table style="font-size: 80%;">
+                                    <thead>
+                                      <tr>
+                                        <th>回転数</th>
+                                        <th style="background-color:#FF66FF">太陽歯車 Za</th>
+                                        <th style="background-color:purple">遊星歯車 Zb</th>
+                                        <th style="background-color:darkorange">出力歯車 Zc</th>
+                                        <th style="background-color:#FF66FF">キャリア</th>
+                                      </tr>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th>①</th>
+                                      <td>1</td>
+                                      <td>-Za/Zb</td>
+                                      <td>Za/Zc</td>
+                                      <td>0 (固定)</td>
+                                    </tr>
+                                    <tr>
+                                      <th>②</th>
+                                      <td>-1</td>
+                                      <td>-1</td>
+                                      <td>-1</td>
+                                      <td>-1</td>
+                                    </tr>
+                                    <tr>
+                                      <th>①＋②</th>
+                                      <td>0</td>
+                                      <td>-Za/Zb-1</td>
+                                      <td>Za/Zc-1</td>
+                                      <td>-1</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+
+                                <p>⇒減速比＝出力歯車Zc(①＋②)/キャリア(①＋②)＝<strong><font color=#FFFF99>1-Za/Zc</font></strong></p>
+                                Zc＝20、Za＝10 とするとキャリアを1回転させると出力歯車が0.5回転する。<br>
+                                歯数が太陽歯車＝出力歯車の場合はZa＝Zcとなり、減速比＝0。キャリアが動いても出力歯車が動かない。<br>
+
+
+                                <h4><font color=#FFFF99>・偶数枚の場合 (歯数が太陽歯車 ≒ 出力歯車)</font></h4>
+                                <img src="img/sasuguusuu.gif?raw=true" alt="偶数枚ギア構成">
+
+                                <table>
+                                  <caption></caption>
+                                  <table style="font-size: 80%;">
+                                    <thead>
+                                      <tr>
+                                        <th>回転数</th>
+                                        <th style="background-color:#FF66FF">太陽歯車 Za</th>
+                                        <th style="background-color:purple">遊星歯車 Zb</th>
+                                        <th style="background-color:purple">遊星歯車 Zb2</th>
+                                        <th style="background-color:darkorange">出力歯車 Zc</th>
+                                        <th style="background-color:#FF66FF">キャリア</th>
+                                      </tr>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th>①</th>
+                                      <td>1</td>
+                                      <td>-Za/Zb1</td>
+                                      <td>Za/Zb2</td>
+                                      <td>-Za/Zc</td>
+                                      <td>0 (固定)</td>
+                                    </tr>
+                                    <tr>
+                                      <th>②</th>
+                                      <td>-1</td>
+                                      <td>-1</td>
+                                      <td>-1</td>
+                                      <td>-1</td>
+                                      <td>-1</td>
+                                    </tr>
+                                    <tr>
+                                      <th>①＋②</th>
+                                      <td>0</td>
+                                      <td>-Za/Zb1-1</td>
+                                      <td>Za/Zb2-1</td>
+                                      <td>-Za/Zc-1</td>
+                                      <td>-1</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+
+                                <p>⇒減速比＝Zc(①＋②)/キャリア(①＋②)＝<strong><font color=#FFFF99>1＋Za/Zc。</font></strong></p>
+                                <p>歯数が太陽歯車＝出力歯車の場合はZa＝Zcとなり、減速比2。</font></strong></p>
+
+
+                                <h3>5. 平行リンクの計算</h3>
+                                <p>キャリアに対して出力ギアが動くほど脚が回転するため、キャリアと出力歯車の速度比を0にすることが最適である。偶数枚だと必ず1以上の速度比になることから奇数枚にする必要がある。</p>
+                                <p> 出力歯車Zc/キャリア =　1-Za/Zc=0　となるようにする。<strong><font color=#FFFF99>　Za=Zcが理想。</font></strong><br>
+                                  出力歯車の歯数を回転中心の歯車に近づけるほど回転数が小さくなる。</p>
+                                  <img src="img/sasu3.gif?raw=true" alt="回転サス 偶数枚1">
+                                  <img src="img/sasu4.gif?raw=true" alt="回転サス 偶数枚2">
+
+                                  <h3>6. 回転サスの計算</h3>
+                                  <p>平行リンクとの違いは、脚のヘッケン軸がキャリアと接続されているという点である。この場合、脚のリンクがキャリアとともに動く。キャリアと出力歯車の速度比を同じにする（1に近づける）ことでサスが効きやすくなる。</p>
+                                  <p>出力歯車Zc=1-Za/Zc=1 となるようにする。<strong><font color=#FFFF99>　Za＜Zcとするほど回転数が1に近づく。</font></strong></p>
+                                  <p>奇数枚、偶数枚では脚の回転方向が反対になる。</p>
+
+                                  <p><strong>奇数の場合：</strong>
+                                    1-Za/Zcより必ずキャリアより出力歯車が少なく回る → 脚がキャリアの動きと逆に動く。
+                                    サスが上に上がる → 脚が前進方向に進む。</p>
+                                    <img src="img/sasu1.gif?raw=true" alt="平行リンクの構成">
+                                    <img src="img/sasu2.gif?raw=true" alt="回転サス 奇数枚">
+
+                                    <p><strong>偶数の場合：</strong>
+                                      1+Za/Zcより必ずキャリアより出力歯車が多く回る → 脚がキャリアの動きと同じ方向に動く。
+                                      サスが上がる → 脚が後進方向に進む。</p>
+
+                                      偶数枚では後進方向に進んでしまうため、奇数枚にする。※これに関しては諸説あるかもしれない<br>
+
+                                      以下、サスが稼働したときに脚機構が回転しない条件<br>
+                                      
+                                      <table>
+                                        <table style="font-size:80%;">
+                                          <thead>
+                                            <tr>
+                                              <th style="background-color:darkslategray">サスペンション方式</th>
+                                              <th style="background-color:darkslategray">計算式</th>
+                                              <th style="background-color:darkslategray">奇数枚の時</th>
+                                              <th style="background-color:darkslategray">偶数枚の時</th>
+
+
+                                            </tr>
+                                          </thead>
+
+                                          <tbody>
+                                            <tr>
+                                              <th>平行リンク</th>
+                                              <td>キャリア(①＋②)／出力歯車Zc=0</td>
+                                              <td >　1-Za/Zc=0</td>
+                                              <td style="background-color:dimgray"> 1＋Za/Zc=0</td>
+
+                                            </tr>
+                                            <tr>
+                                              <th>回転サス </th>
+                                              <td>キャリア(①＋②)／出力歯車Zc=1</td>
+                                              <td >　1-Za/Zc=1</td>
+                                              <td style="background-color:dimgray">1＋Za/Zc=1 </td>
+                                            </tr>
+
+                                          </tbody>
+                                        </table>
+                                        <h4>まとめ</h4>
+                                        <p>本ページhtmlはほとんどChatGTPに書いてもらいました</p>
+
+                                        <a href="#pagetop" >ページ上部に戻る</a><br>
+
+
+                                      </section>
+                                    </body>
+                                    </html>
